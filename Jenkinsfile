@@ -1,27 +1,30 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('Build'){
-            steps{
-                
+
+    stages {
+        stage('Build') {
+            steps {
                 sh 'g++ -o PES1UG20CS642 PES1UG20CS642.cpp'
-                echo 'build stage successfull'
+                build job: 'PES1UG20CS642-1'
             }
         }
-        stage('Test'){
-            steps{
-                echo 'Test stage executed successfulllllly'
+
+        stage('Test') {
+            steps {
+                sh './PES1UG20CS642'
             }
         }
-        stage('Deploy'){
-            steps{
-                echo 'Deployed Successfulllllly'
+
+        stage('Deploy') {
+            steps {
+                echo 'Success'
             }
         }
     }
-    post{
-        failure{
-            echo 'Pipeline Failed'
+
+    post {
+        failure {
+            echo 'Pipeline failed!'
         }
     }
 }
