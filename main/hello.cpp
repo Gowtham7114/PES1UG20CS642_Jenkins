@@ -8,5 +8,3 @@ int main(void) {
   cout << "I have successfully built and run\n";
   return 0;
 }
-
-135ed8cf7674497db42dee0627e5d141
